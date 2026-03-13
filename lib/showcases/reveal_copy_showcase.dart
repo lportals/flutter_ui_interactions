@@ -13,9 +13,9 @@ class _RevealCopyShowcaseState extends State<RevealCopyShowcase> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color(0xFFFAFAFA),
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: const Color(0xFFFAFAFA),
         elevation: 0,
         scrolledUnderElevation: 0,
         leading: IconButton(
