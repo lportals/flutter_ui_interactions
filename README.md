@@ -1,12 +1,12 @@
-# Flutter UI Interactions
+# Flutter UI Components
 
-A curated collection of premium, highly customizable Flutter UI interactions and widgets built with vanilla Flutter animations. Zero dependencies.
+A curated collection of premium, highly customizable Flutter UI components and widgets built with vanilla Flutter animations. Zero dependencies.
 
 ## Structure
 
-This repository is organized into distinct interactions. Each component is designed to be copy-paste ready into your own projects.
+This repository is organized into distinct components. Each component is designed to be copy-paste ready into your own projects.
 
-- `/lib/interactions/`
+- `/lib/components/`
   - `reveal_and_copy/`: Secure reveal and copy interaction for sensitive data.
 
 ---
@@ -23,7 +23,7 @@ A premium interaction designed for safely displaying and copying sensitive infor
 
 ### Usage
 
-1. Copy `lib/interactions/reveal_and_copy/reveal_copy_interaction.dart` into your project.
+1. Copy `lib/components/reveal_and_copy/reveal_copy_interaction.dart` into your project.
 2. Use the widget:
 
 ```dart
