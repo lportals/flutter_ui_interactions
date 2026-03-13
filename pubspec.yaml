@@ -1,0 +1,22 @@
+name: flutter_ui_interactions
+description: "A collection of premium Flutter UI interactions and widgets."
+publish_to: 'none'
+version: 0.1.0+1
+
+environment:
+  sdk: ^3.11.1
+
+dependencies:
+  animations: ^2.1.1
+  flutter:
+    sdk: flutter
+  google_fonts: ^8.0.2
+  lucide_icons: ^0.257.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
