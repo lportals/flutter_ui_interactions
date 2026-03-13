@@ -60,7 +60,7 @@ class RevealCopyInteraction extends StatefulWidget {
     this.revealDuration = const Duration(seconds: 4),
     this.successColor = const Color(0xFF10B981),
     this.backgroundColor = Colors.white,
-    this.borderColor = const Color(0x1A000000), // Black 10%
+    this.borderColor = const Color(0x0F000000),
     this.textStyle,
     this.maskedTextStyle,
     this.borderRadius = 16.0,
@@ -186,7 +186,14 @@ class _RevealCopyInteractionState extends State<RevealCopyInteraction>
       decoration: BoxDecoration(
         color: widget.backgroundColor,
         borderRadius: BorderRadius.circular(widget.borderRadius),
-        border: Border.all(color: widget.borderColor, width: 1.5),
+        border: Border.all(color: widget.borderColor, width: 1.0),
+        boxShadow: const [
+          BoxShadow(
+            color: Color(0x05000000),
+            blurRadius: 10,
+            offset: Offset(0, 4),
+          ),
+        ],
       ),
       child: Row(
         children: [

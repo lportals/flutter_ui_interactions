@@ -2,26 +2,28 @@
 
 A curated collection of premium, highly customizable Flutter UI components and experimental interactions. Built with vanilla Flutter animations and high attention to detail.
 
-## Structure
+## 📖 Component Library
 
-This repository is organized into distinct components. Each component is designed to be copy-paste ready into your own projects.
+This repository acts as a mono-repo for different premium UI components. Each component is designed to be copy-paste ready into your own projects. 
 
-- `/lib/components/`
-  - `reveal_and_copy/`: Secure reveal and copy interaction for sensitive data.
+| Component | Description | Location |
+|-----------|-------------|----------|
+| **[Reveal & Copy](#-reveal--copy)** | Secure scramble reveal for sensitive data with a copy-to-clipboard animation. | `/lib/components/reveal_and_copy/` |
+| *(More to come)* | ... | ... |
 
 ---
 
-## 🔒 Reveal & Copy Interaction
+### 🔒 Reveal & Copy
 
 A premium interaction designed for safely displaying and copying sensitive information like credit card numbers, passwords, or API keys. 
 
-### Features
+#### Features
 - **Secure by Default:** Values are masked with a custom character (defaults to '×').
 - **Elegant Animations:** Smooth scramble reveal effect and a premium shimmer pass upon revealing.
 - **Auto-Hide:** Automatically reverts to a masked state after a configurable duration.
-- **Built-in Copy:** Integrated copy-to-clipboard functionality with animated visual feedback.
+- **Micro-interactions:** Integrated copy-to-clipboard functionality with animated visual feedback.
 
-### Usage
+#### Usage
 
 1. Copy `lib/components/reveal_and_copy/reveal_copy_interaction.dart` into your project.
 2. Use the widget:
@@ -39,6 +41,8 @@ RevealCopyInteraction(
 )
 ```
 
-## Contributing
+---
+
+## 🤝 Contributing
 
 Feel free to open issues or submit pull requests if you have ideas for new interactions or improvements to existing ones!
