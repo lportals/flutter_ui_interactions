@@ -1,21 +1,21 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'models/interest.dart';
+import 'models/choice_item.dart';
 
-/// A premium, high-fidelity interaction component for selecting items or interests.
+/// A premium, high-fidelity interaction component for selecting items or categories.
 /// Features a multi-row horizontal scroller, 3D flip odometer counter, and flying media animations.
 /// 
-/// Supports [Interest] items which can contain emojis, icons, or images.
+/// Supports [ChoiceItem] items which can contain emojis, icons, or images.
 class PremiumChoiceChips extends StatefulWidget {
   /// The title displayed at the top of the component.
   final String title;
 
   /// The list of items to be displayed as chips.
-  final List<Interest> interests;
+  final List<ChoiceItem> items;
 
   /// Callback triggered when the selection list changes.
-  final ValueChanged<List<Interest>>? onSelectionChanged;
+  final ValueChanged<List<ChoiceItem>>? onSelectionChanged;
 
   /// Callback triggered when the main action card (the counter) is pressed.
   final VoidCallback? onActionPressed;
@@ -34,14 +34,14 @@ class PremiumChoiceChips extends StatefulWidget {
 
   const PremiumChoiceChips({
     super.key,
-    this.title = 'Interests',
-    required this.interests,
+    this.title = 'Selection',
+    required this.items,
     this.onSelectionChanged,
     this.onActionPressed,
     this.backgroundColor = const Color(0xFFFAFAFA),
     this.accentColor = const Color(0xFF1D1D1F),
-    this.buttonLabel = 'Interest',
-    this.buttonPluralLabel = 'Interests',
+    this.buttonLabel = 'Item',
+    this.buttonPluralLabel = 'Items',
   });
 
   @override
@@ -49,27 +49,27 @@ class PremiumChoiceChips extends StatefulWidget {
 }
 
 class _PremiumChoiceChipsState extends State<PremiumChoiceChips> with TickerProviderStateMixin {
-  final Set<Interest> _selectedInterests = {};
-  final List<_FlyingMediaData> _activeFlyingEmojis = [];
+  final Set<ChoiceItem> _selectedItems = {};
+  final List<_FlyingMediaData> _activeFlyingMedia = [];
   final LayerLink _buttonLayerLink = LayerLink();
   final GlobalKey _buttonTargetKey = GlobalKey();
 
-  void _onChipTapped(Interest interest) {
-    if (_activeFlyingEmojis.isNotEmpty) return;
+  void _onChipTapped(ChoiceItem item) {
+    if (_activeFlyingMedia.isNotEmpty) return;
     
     setState(() {
-      final isSelected = _selectedInterests.contains(interest);
+      final isSelected = _selectedItems.contains(item);
       if (isSelected) {
-        _selectedInterests.remove(interest);
+        _selectedItems.remove(item);
       } else {
-        _selectedInterests.add(interest);
-        _triggerEmojiAnimation(interest);
+        _selectedItems.add(item);
+        _triggerMediaAnimation(item);
       }
-      widget.onSelectionChanged?.call(_selectedInterests.toList());
+      widget.onSelectionChanged?.call(_selectedItems.toList());
     });
   }
 
-  void _triggerEmojiAnimation(Interest interest) {
+  void _triggerMediaAnimation(ChoiceItem item) {
     final id = DateTime.now().millisecondsSinceEpoch.toString();
     Offset? buttonPos;
     try {
@@ -88,30 +88,30 @@ class _PremiumChoiceChipsState extends State<PremiumChoiceChips> with TickerProv
     } catch (_) {}
 
     setState(() {
-      _activeFlyingEmojis.add(_FlyingMediaData(
+      _activeFlyingMedia.add(_FlyingMediaData(
         id: id,
-        interest: interest,
+        item: item,
         startPosition: buttonPos,
         targetPosition: buttonPos,
       ));
     });
   }
 
-  void _removeFlyingEmoji(String id) {
+  void _removeFlyingMedia(String id) {
     setState(() {
-      _activeFlyingEmojis.removeWhere((e) => e.id == id);
+      _activeFlyingMedia.removeWhere((e) => e.id == id);
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    final int itemsPerRow = (widget.interests.length / 4).ceil();
-    final List<List<Interest>> rows = [];
+    final int itemsPerRow = (widget.items.length / 4).ceil();
+    final List<List<ChoiceItem>> rows = [];
     for (int i = 0; i < 4; i++) {
       final start = i * itemsPerRow;
-      if (start >= widget.interests.length) break;
-      final end = (start + itemsPerRow).clamp(0, widget.interests.length);
-      final row = widget.interests.sublist(start, end);
+      if (start >= widget.items.length) break;
+      final end = (start + itemsPerRow).clamp(0, widget.items.length);
+      final row = widget.items.sublist(start, end);
       if (row.isNotEmpty) rows.add(row);
     }
 
@@ -162,14 +162,14 @@ class _PremiumChoiceChipsState extends State<PremiumChoiceChips> with TickerProv
                     return Padding(
                       padding: const EdgeInsets.only(bottom: 8),
                       child: Row(
-                        children: rowItems.map((interest) {
+                        children: rowItems.map((item) {
                           return Padding(
                             padding: const EdgeInsets.only(right: 12),
-                            child: _InterestChip(
-                              interest: interest,
-                              isSelected: _selectedInterests.contains(interest),
+                            child: _ChoiceChip(
+                              item: item,
+                              isSelected: _selectedItems.contains(item),
                               accentColor: widget.accentColor,
-                              onTap: () => _onChipTapped(interest),
+                              onTap: () => _onChipTapped(item),
                             ),
                           );
                         }).toList(),
@@ -197,14 +197,14 @@ class _PremiumChoiceChipsState extends State<PremiumChoiceChips> with TickerProv
         Positioned.fill(
           child: Stack(
             clipBehavior: Clip.none,
-            children: _activeFlyingEmojis.map((anim) => _FlyingMedia(
+            children: _activeFlyingMedia.map((anim) => _FlyingMedia(
               key: ValueKey(anim.id),
-              interest: anim.interest,
+              item: anim.item,
               startPosition: anim.startPosition,
               targetPosition: anim.targetPosition,
               backgroundColor: widget.backgroundColor,
               accentColor: widget.accentColor,
-              onComplete: () => _removeFlyingEmoji(anim.id),
+              onComplete: () => _removeFlyingMedia(anim.id),
             )).toList(),
           ),
         ),
@@ -222,7 +222,7 @@ class _PremiumChoiceChipsState extends State<PremiumChoiceChips> with TickerProv
             child: GestureDetector(
               onTap: widget.onActionPressed,
               child: _BottomActionButton(
-                count: _selectedInterests.length,
+                count: _selectedItems.length,
                 accentColor: widget.accentColor,
                 label: widget.buttonLabel,
                 pluralLabel: widget.buttonPluralLabel,
@@ -237,43 +237,43 @@ class _PremiumChoiceChipsState extends State<PremiumChoiceChips> with TickerProv
 
 class _FlyingMediaData {
   final String id;
-  final Interest interest;
+  final ChoiceItem item;
   final Offset? startPosition;
   final Offset? targetPosition;
   _FlyingMediaData({
     required this.id, 
-    required this.interest, 
+    required this.item, 
     this.startPosition, 
     this.targetPosition,
   });
 }
 
-class _InterestMedia extends StatelessWidget {
-  final Interest interest;
+class _ChoiceMedia extends StatelessWidget {
+  final ChoiceItem item;
   final double size;
   final Color? color;
 
-  const _InterestMedia({
-    required this.interest,
+  const _ChoiceMedia({
+    required this.item,
     this.size = 20,
     this.color,
   });
 
   @override
   Widget build(BuildContext context) {
-    if (interest.emoji != null) {
+    if (item.emoji != null) {
       return Text(
-        interest.emoji!,
+        item.emoji!,
         style: TextStyle(fontSize: size),
       );
-    } else if (interest.icon != null) {
+    } else if (item.icon != null) {
       return Icon(
-        interest.icon,
+        item.icon,
         size: size,
         color: color,
       );
-    } else if (interest.imagePath != null) {
-      final isNetwork = interest.imagePath!.startsWith('http');
+    } else if (item.imagePath != null) {
+      final isNetwork = item.imagePath!.startsWith('http');
       return Container(
         width: size,
         height: size,
@@ -281,8 +281,8 @@ class _InterestMedia extends StatelessWidget {
           borderRadius: BorderRadius.circular(size * 0.2),
           image: DecorationImage(
             image: isNetwork 
-              ? NetworkImage(interest.imagePath!) as ImageProvider
-              : AssetImage(interest.imagePath!),
+              ? NetworkImage(item.imagePath!) as ImageProvider
+              : AssetImage(item.imagePath!),
             fit: BoxFit.cover,
           ),
         ),
@@ -292,14 +292,14 @@ class _InterestMedia extends StatelessWidget {
   }
 }
 
-class _InterestChip extends StatelessWidget {
-  final Interest interest;
+class _ChoiceChip extends StatelessWidget {
+  final ChoiceItem item;
   final bool isSelected;
   final Color accentColor;
   final VoidCallback onTap;
 
-  const _InterestChip({
-    required this.interest,
+  const _ChoiceChip({
+    required this.item,
     required this.isSelected,
     required this.accentColor,
     required this.onTap,
@@ -332,14 +332,14 @@ class _InterestChip extends StatelessWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            _InterestMedia(
-              interest: interest,
+            _ChoiceMedia(
+              item: item,
               size: 20,
               color: isSelected ? accentColor : const Color(0xFF48484A),
             ),
             const SizedBox(width: 10),
             Text(
-              interest.label,
+              item.label,
               style: TextStyle(
                 fontSize: 17,
                 fontWeight: FontWeight.w600,
@@ -548,7 +548,7 @@ class PremiumFlipCounter extends StatelessWidget {
 }
 
 class _FlyingMedia extends StatefulWidget {
-  final Interest interest;
+  final ChoiceItem item;
   final Offset? startPosition;
   final Offset? targetPosition;
   final Color backgroundColor;
@@ -557,7 +557,7 @@ class _FlyingMedia extends StatefulWidget {
 
   const _FlyingMedia({
     super.key,
-    required this.interest,
+    required this.item,
     this.startPosition,
     this.targetPosition,
     required this.backgroundColor,
@@ -749,8 +749,8 @@ class _FlyingMediaState extends State<_FlyingMedia> with SingleTickerProviderSta
           scale: scale.clamp(0.0, 5.0),
           child: ImageFiltered(
             imageFilter: ImageFilter.blur(sigmaX: blur, sigmaY: blur),
-            child: _InterestMedia(
-              interest: widget.interest,
+            child: _ChoiceMedia(
+              item: widget.item,
               size: 60,
               color: widget.accentColor,
             ),
