@@ -11,12 +11,12 @@ class HomePage extends StatelessWidget {
       backgroundColor: const Color(0xFFFAFAFA),
       appBar: AppBar(
         title: const Text(
-          'Flutter UI Components',
+          'Portal Labs',
           style: TextStyle(
             color: Colors.black,
-            fontSize: 20,
-            fontWeight: FontWeight.w600,
-            letterSpacing: -0.5,
+            fontSize: 22,
+            fontWeight: FontWeight.w700,
+            letterSpacing: -0.8,
           ),
         ),
         backgroundColor: Colors.transparent,

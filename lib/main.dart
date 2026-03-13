@@ -12,7 +12,7 @@ class RevealAndCopyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter UI Components',
+      title: 'Portal Labs',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         brightness: Brightness.light,

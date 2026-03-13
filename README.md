@@ -1,6 +1,6 @@
-# Flutter UI Components
+# 🧪 Portal Labs
 
-A curated collection of premium, highly customizable Flutter UI components and widgets built with vanilla Flutter animations. Zero dependencies.
+A curated collection of premium, highly customizable Flutter UI components and experimental interactions. Built with vanilla Flutter animations and high attention to detail.
 
 ## Structure
 
