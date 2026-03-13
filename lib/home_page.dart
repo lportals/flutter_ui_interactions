@@ -31,7 +31,7 @@ class HomePage extends StatelessWidget {
           _ComponentCard(
             title: 'Reveal & Copy',
             subtitle: 'Secure scramble reveal with copy animation',
-            icon: LucideIcons.scanLine,
+            icon: LucideIcons.eye,
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(

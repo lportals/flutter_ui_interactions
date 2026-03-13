@@ -31,46 +31,25 @@ class _RevealCopyShowcaseState extends State<RevealCopyShowcase> {
           ),
         ),
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-
-              RevealCopyInteraction(
-                value: '4485 2291 0034 7516',
-                onCopied: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text('Copied to clipboard!'),
-                      behavior: SnackBarBehavior.floating,
-                      duration: Duration(seconds: 2),
-                    ),
-                  );
-                },
-              ),
-              
-              /* 
-              // Example of Read-Only behavior (hidden in UI but kept in code for reference)
-              const SizedBox(height: 48),
-              const Text(
-                'Read-Only Mode',
-                style: TextStyle(
-                  fontSize: 14, 
-                  fontWeight: FontWeight.w500, 
-                  color: Color(0xFF666666),
-                ),
-              ),
-              const SizedBox(height: 16),
-              const RevealCopyInteraction(
-                value: 'SECRET_API_KEY_12345',
-                enableCopy: false,
-                successColor: Colors.blueAccent,
-              ),
-              */
-            ],
-          ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        child: Column(
+          children: [
+            const Spacer(flex: 2),
+            RevealCopyInteraction(
+              value: '4485 2291 0034 7516',
+              onCopied: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Copied to clipboard!'),
+                    behavior: SnackBarBehavior.floating,
+                    duration: Duration(seconds: 2),
+                  ),
+                );
+              },
+            ),
+            const Spacer(flex: 3),
+          ],
         ),
       ),
     );
