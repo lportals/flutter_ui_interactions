@@ -1,0 +1,12 @@
+# Mark native boilerplate folders as vendored so they don't count towards language statistics
+android/* linguist-vendored
+ios/* linguist-vendored
+linux/* linguist-vendored
+macos/* linguist-vendored
+windows/* linguist-vendored
+web/* linguist-vendored
+
+# Also mark generated files
+*.g.dart linguist-generated
+*.freezed.dart linguist-generated
+pubspec.lock linguist-generated
