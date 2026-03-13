@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'showcases/reveal_copy_showcase.dart';
+import 'showcases/emoji_choicechips_showcase.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -36,6 +37,18 @@ class HomePage extends StatelessWidget {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (_) => const RevealCopyShowcase(),
+                ),
+              );
+            },
+          ),
+          _ComponentCard(
+            title: 'Emoji ChoiceChips',
+            subtitle: 'Animated selection with pyramid flying emojis',
+            icon: LucideIcons.smile,
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) => const EmojiChoicechipsShowcase(),
                 ),
               );
             },

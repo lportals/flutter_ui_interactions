@@ -9,7 +9,39 @@ This repository acts as a mono-repo for different premium UI components. Each co
 | Component | Description | Location |
 |-----------|-------------|----------|
 | **[Reveal & Copy](#-reveal--copy)** | Secure scramble reveal for sensitive data with a copy-to-clipboard animation. | `/lib/components/reveal_and_copy/` |
-| *(More to come)* | ... | ... |
+| **[Premium Choice Chips](#-premium-choice-chips)** | Animated selection with flip counter and flying media transitions. | `/lib/components/premium_choice_chips/` |
+
+---
+
+### 🎨 Premium Choice Chips
+
+A playful and engaging interaction component for selections, featuring high-end animations and multi-media support (Emojis, Icons, and Images).
+
+#### Features
+- **Multi-media Support:** Use text emojis, Flutter icons, or network/asset images as items.
+- **Flying Media Animation:** When an item is selected, a pyramid of 3 media elements (emoji/icon/image) flies up and "lands" in the counter.
+- **3D Flip Counter:** An odometer-style flip animation for counting selections.
+- **Customizable Labels:** Easily change button labels (e.g., "Interest" vs "Interests").
+
+#### Usage
+
+1. Copy the contents of `lib/components/choice_chips/` into your project.
+2. Use the widget:
+
+```dart
+import 'path/to/premium_choice_chips.dart';
+import 'path/to/models/interest.dart';
+
+PremiumChoiceChips(
+  interests: [
+    Interest(label: 'Design', icon: LucideIcons.palette), // Icon support
+    Interest(label: 'Coffee', emoji: '☕'),               // Emoji support
+  ],
+  onSelectionChanged: (selected) {
+    print('Selected: ${selected.length} items');
+  },
+)
+```
 
 ---
 
