@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'src/reveal_copy_interaction.dart';
+import 'interactions/reveal_and_copy/reveal_copy_interaction.dart';
 
 void main() {
   runApp(const RevealAndCopyApp());
