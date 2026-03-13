@@ -37,15 +37,7 @@ class _RevealCopyShowcaseState extends State<RevealCopyShowcase> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Text(
-                'Default Copy Behavior',
-                style: TextStyle(
-                  fontSize: 14, 
-                  fontWeight: FontWeight.w500, 
-                  color: Color(0xFF666666),
-                ),
-              ),
-              const SizedBox(height: 16),
+
               RevealCopyInteraction(
                 value: '4485 2291 0034 7516',
                 onCopied: () {
