@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'components/reveal_and_copy/reveal_copy_interaction.dart';
+import 'home_page.dart';
 
 void main() {
   runApp(const RevealAndCopyApp());
@@ -12,63 +12,16 @@ class RevealAndCopyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Reveal and Copy Interaction',
+      title: 'Flutter UI Components',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         brightness: Brightness.light,
-        scaffoldBackgroundColor: const Color(0xFFFFFFFF),
+        scaffoldBackgroundColor: const Color(0xFFFAFAFA),
         useMaterial3: true,
         fontFamily: 'Inter',
       ),
-      home: const RevealCopyShowcase(),
+      home: const HomePage(),
     );
   }
 }
 
-class RevealCopyShowcase extends StatefulWidget {
-  const RevealCopyShowcase({super.key});
-
-  @override
-  State<RevealCopyShowcase> createState() => _RevealCopyShowcaseState();
-}
-
-class _RevealCopyShowcaseState extends State<RevealCopyShowcase> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              // We only keep the copy behavior visible in the UI for aesthetic reasons
-              RevealCopyInteraction(
-                value: '4485 2291 0034 7516',
-                onCopied: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text('Copied to clipboard!'),
-                      behavior: SnackBarBehavior.floating,
-                      duration: Duration(seconds: 2),
-                    ),
-                  );
-                },
-              ),
-              
-              /* 
-              // Example of Read-Only behavior (hidden in UI but kept in code for reference)
-              const SizedBox(height: 32),
-              const RevealCopyInteraction(
-                value: 'SECRET_API_KEY_12345',
-                enableCopy: false,
-                successColor: Colors.blueAccent,
-              ),
-              */
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
