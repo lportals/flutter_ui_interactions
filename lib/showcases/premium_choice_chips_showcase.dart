@@ -3,8 +3,8 @@ import 'package:lucide_icons/lucide_icons.dart';
 import '../components/premium_choice_chips/premium_choice_chips.dart';
 import '../components/premium_choice_chips/models/choice_item.dart';
 
-class EmojiChoicechipsShowcase extends StatelessWidget {
-  const EmojiChoicechipsShowcase({super.key});
+class PremiumChoiceChipsShowcase extends StatelessWidget {
+  const PremiumChoiceChipsShowcase({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class EmojiChoicechipsShowcase extends StatelessWidget {
           onPressed: () => Navigator.pop(context),
         ),
         title: const Text(
-          'Emoji ChoiceChips',
+          'Premium Choice Chips',
           style: TextStyle(
             color: Colors.black,
             fontSize: 16,
