@@ -19,7 +19,7 @@ class _RevealCopyShowcaseState extends State<RevealCopyShowcase> {
         elevation: 0,
         scrolledUnderElevation: 0,
         leading: IconButton(
-          icon: const Icon(LucideIcons.arrowLeft, color: Colors.black),
+          icon: const Icon(LucideIcons.arrowLeft, color: Colors.black, size: 20),
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: const Text(

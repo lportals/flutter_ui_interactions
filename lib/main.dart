@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'home_page.dart';
 
 void main() {
-  runApp(const RevealAndCopyApp());
+  runApp(const PortalLabsApp());
 }
 
-/// A showcase application for the Reveal and Copy Interaction widget.
-class RevealAndCopyApp extends StatelessWidget {
-  const RevealAndCopyApp({super.key});
+/// A showcase application for premium Flutter UI components.
+class PortalLabsApp extends StatelessWidget {
+  const PortalLabsApp({super.key});
 
   @override
   Widget build(BuildContext context) {

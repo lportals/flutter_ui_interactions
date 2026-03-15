@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'showcases/reveal_copy_showcase.dart';
 import 'showcases/premium_choice_chips_showcase.dart';
+import 'showcases/weight_picker_showcase.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -49,6 +50,18 @@ class HomePage extends StatelessWidget {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (_) => const PremiumChoiceChipsShowcase(),
+                ),
+              );
+            },
+          ),
+          _ComponentCard(
+            title: 'Modern Weight Picker',
+            subtitle: 'Curved ruler interaction with snapping physics',
+            icon: LucideIcons.gauge,
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) => const WeightPickerShowcase(),
                 ),
               );
             },
