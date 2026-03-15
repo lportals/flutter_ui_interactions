@@ -8,8 +8,8 @@ This repository acts as a mono-repo for different premium UI components. Each co
 
 | Component | Description | Location |
 |-----------|-------------|----------|
-| **[Reveal & Copy](#-reveal--copy)** | Secure scramble reveal for sensitive data with a copy-to-clipboard animation. | `/lib/components/reveal_and_copy/` |
 | **[Premium Choice Chips](#-premium-choice-chips)** | Animated selection with flip counter and flying media transitions. | `/lib/components/premium_choice_chips/` |
+| **[Reveal & Copy](#-reveal--copy)** | Secure scramble reveal for sensitive data with a copy-to-clipboard animation. | `/lib/components/reveal_and_copy/` |
 | **[Modern Weight Picker](#-modern-weight-picker)** | Precision scrollable ruler with haptic feedback and magnetic snapping. | `/lib/components/weight_picker/` |
 
 ---
