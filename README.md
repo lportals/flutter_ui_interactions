@@ -10,6 +10,7 @@ This repository acts as a mono-repo for different premium UI components. Each co
 |-----------|-------------|----------|
 | **[Reveal & Copy](#-reveal--copy)** | Secure scramble reveal for sensitive data with a copy-to-clipboard animation. | `/lib/components/reveal_and_copy/` |
 | **[Premium Choice Chips](#-premium-choice-chips)** | Animated selection with flip counter and flying media transitions. | `/lib/components/premium_choice_chips/` |
+| **[Modern Weight Picker](#-modern-weight-picker)** | Precision scrollable ruler with haptic feedback and magnetic snapping. | `/lib/components/weight_picker/` |
 
 ---
 
@@ -69,6 +70,36 @@ RevealCopyInteraction(
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text('Copied successfully!')),
     );
+  },
+)
+```
+
+---
+
+### ⚖️ Modern Weight Picker
+
+A sleek, precision-focused ruler input for numeric values, perfect for fitness apps or physical measurements.
+
+#### Features
+- **Precision Ruler:** Custom-painted interactive ruler with major and minor increments.
+- **Magnetic Snapping:** Smooth snapping to the nearest value for a tactile feel.
+- **Dynamic Feedback:** Real-time value updates as the user scrolls.
+- **Premium Styling:** Gradient-based highlighting and modern typography.
+
+#### Usage
+
+1. Copy the contents of `lib/components/weight_picker/` into your project.
+2. Use the widget:
+
+```dart
+import 'path/to/weight_picker.dart';
+
+WeightPicker(
+  initialWeight: 75.0,
+  minWeight: 30,
+  maxWeight: 250,
+  onWeightChanged: (weight) {
+    print('Current weight: $weight');
   },
 )
 ```
