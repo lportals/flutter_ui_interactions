@@ -16,6 +16,8 @@ This repository acts as a mono-repo for different premium UI components. Each co
 
 ### 🎨 Premium Choice Chips
 
+![Premium Choice Chips Showcase](assets/premium_choice_chips.gif)
+
 A playful and engaging interaction component for selections, featuring high-end animations and multi-media support (Emojis, Icons, and Images).
 
 #### Features
@@ -48,6 +50,8 @@ PremiumChoiceChips(
 
 ### 🔒 Reveal & Copy
 
+![Reveal & Copy Showcase](assets/reveal_and_copy.gif)
+
 A premium interaction designed for safely displaying and copying sensitive information like credit card numbers, passwords, or API keys. 
 
 #### Features
@@ -77,6 +81,8 @@ RevealCopyInteraction(
 ---
 
 ### ⚖️ Modern Weight Picker
+
+![Weight Picker Showcase](assets/weight_picker.gif)
 
 A sleek, precision-focused ruler input for numeric values, perfect for fitness apps or physical measurements.
 
